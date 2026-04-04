@@ -3,9 +3,11 @@ const BASE_URL = 'https://api.enrow.io';
 export interface FindPhoneParams {
   apiKey: string;
   linkedinUrl?: string;
-  fullName?: string;
+  firstName?: string;
+  lastName?: string;
   companyDomain?: string;
   companyName?: string;
+  custom?: string;
   webhook?: string;
 }
 
@@ -13,10 +15,11 @@ export interface FindPhonesParams {
   apiKey: string;
   searches: Array<{
     linkedinUrl?: string;
-    fullName?: string;
+    firstName?: string;
+    lastName?: string;
     companyDomain?: string;
     companyName?: string;
-    custom?: Record<string, unknown>;
+    custom?: string;
   }>;
   webhook?: string;
 }
@@ -26,6 +29,7 @@ export interface PhoneResult {
   number?: string;
   country?: string;
   qualification?: string;
+  params?: Record<string, unknown>;
   status?: string;
   message?: string;
   creditsUsed?: number;
@@ -62,9 +66,11 @@ async function request(apiKey: string, method: string, path: string, body?: unkn
 export async function findPhone(params: FindPhoneParams): Promise<PhoneResult> {
   const body: Record<string, unknown> = {};
   if (params.linkedinUrl) body.linkedin_url = params.linkedinUrl;
-  if (params.fullName) body.fullname = params.fullName;
+  if (params.firstName) body.first_name = params.firstName;
+  if (params.lastName) body.last_name = params.lastName;
   if (params.companyDomain) body.company_domain = params.companyDomain;
   if (params.companyName) body.company_name = params.companyName;
+  if (params.custom) body.custom = params.custom;
   if (params.webhook) {
     body.settings = { webhook: params.webhook };
   }
@@ -79,7 +85,8 @@ export async function findPhones(params: FindPhonesParams): Promise<BulkPhoneRes
   const body: Record<string, unknown> = {
     searches: params.searches.map((s) => ({
       ...(s.linkedinUrl && { linkedin_url: s.linkedinUrl }),
-      ...(s.fullName && { fullname: s.fullName }),
+      ...(s.firstName && { first_name: s.firstName }),
+      ...(s.lastName && { last_name: s.lastName }),
       ...(s.companyDomain && { company_domain: s.companyDomain }),
       ...(s.companyName && { company_name: s.companyName }),
       ...(s.custom && { custom: s.custom }),
