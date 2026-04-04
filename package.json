@@ -1,0 +1,43 @@
+{
+  "name": "phone-finder",
+  "version": "1.0.0",
+  "description": "Find mobile phone numbers from LinkedIn profiles or a name and company. Powered by Enrow.",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    }
+  },
+  "files": ["dist"],
+  "scripts": {
+    "build": "tsup src/index.ts --format cjs,esm --dts",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "phone-finder",
+    "find-phone",
+    "phone-number",
+    "mobile-phone",
+    "linkedin",
+    "phone-lookup",
+    "b2b",
+    "lead-generation",
+    "enrow"
+  ],
+  "author": "Enrow",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/enrow/phone-finder-js"
+  },
+  "homepage": "https://enrow.io",
+  "engines": { "node": ">=18" },
+  "devDependencies": {
+    "tsup": "^8.0.0",
+    "typescript": "^5.3.0"
+  }
+}
