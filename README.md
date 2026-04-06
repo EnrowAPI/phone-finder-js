@@ -2,6 +2,8 @@
 
 [![npm version](https://img.shields.io/npm/v/phone-finder.svg)](https://www.npmjs.com/package/phone-finder)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
+[![GitHub stars](https://img.shields.io/github/stars/EnrowAPI/phone-finder-js)](https://github.com/EnrowAPI/phone-finder-js)
+[![Last commit](https://img.shields.io/github/last-commit/EnrowAPI/phone-finder-js)](https://github.com/EnrowAPI/phone-finder-js/commits)
 
 Find mobile phone numbers from LinkedIn profiles or a name and company. Integrate phone discovery into your sales outreach or enrichment pipeline.
 
@@ -103,7 +105,7 @@ Register at [app.enrow.io](https://app.enrow.io) to get your API key. You get **
 ## Documentation
 
 - [Enrow API documentation](https://docs.enrow.io)
-- [Full Enrow SDK](https://github.com/enrow/enrow-js) -- includes email finder, email verifier, reverse email lookup, and more
+- [Full Enrow SDK](https://github.com/EnrowAPI/enrow-js) -- includes email finder, email verifier, reverse email lookup, and more
 
 ## License
 
